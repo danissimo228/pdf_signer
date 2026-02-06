@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <title>PDF Selection - Single Document</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📄 PDF Selection Tool - Один документ</h1>
+                <p>Выделяйте области в PDF файле и получайте координаты</p>
+            </div>
+
+            <div class="controls">
+                <div
+                    class="file-upload-area"
+                    onclick="document.getElementById('pdfFile').click()"
+                >
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Нажмите для выбора PDF файла</div>
+                    <div class="upload-hint">Только один файл за раз</div>
+                </div>
+                <input type="file" id="pdfFile" accept=".pdf" />
+
+                <div class="document-info">
+                    <div class="info-item">
+                        <span class="info-label">Выбранный файл</span>
+                        <span id="fileName" class="info-value">Нет файла</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Страниц в документе</span>
+                        <span id="pageCount" class="info-value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Статус</span>
+                        <span id="docStatus" class="info-value"
+                            >Ожидание загрузки</span
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div id="pdfViewer">
+                <div class="empty-state" id="emptyState">
+                    <span>📄</span>
+                    <h3>PDF файл не загружен</h3>
+                    <p>Выберите PDF файл для начала работы</p>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3>Как использовать:</h3>
+                <ol>
+                    <li>
+                        Выберите один PDF файл (кликните на область загрузки
+                        выше)
+                    </li>
+                    <li>Документ откроется со всеми страницами</li>
+                    <li>
+                        Нажмите и тяните мышку на любой странице для выделения
+                        области
+                    </li>
+                    <li>
+                        Отпустите кнопку мыши - появится информация о выделении
+                    </li>
+                    <li>Координаты включают номер страницы и позицию на ней</li>
+                </ol>
+            </div>
+
+            <div class="status-bar">
+                <div id="statusText">Готов к загрузке PDF файла</div>
+                <button class="clear-btn" id="clearBtn">
+                    Очистить документ
+                </button>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
